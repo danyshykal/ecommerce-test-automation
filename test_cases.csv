@@ -1,0 +1,17 @@
+Test Case ID,Module,Scenario,Pre-condition,Test Steps,Test Data,Expected Result,Priority,Type,Automated
+TC_LOGIN_01,Login,Login with valid credentials,On login page,1. Enter username 2. Enter password 3. Click Login,standard_user / secret_sauce,Redirected to inventory page,High,Positive,Yes
+TC_LOGIN_02,Login,Login with wrong password,On login page,1. Enter username 2. Enter wrong password 3. Click Login,standard_user / wrong_pass,Error: Username and password do not match,High,Negative,Yes
+TC_LOGIN_03,Login,Login with empty username,On login page,1. Leave username empty 2. Enter password 3. Click Login,(blank) / secret_sauce,Error: Username is required,Medium,Negative,Yes
+TC_LOGIN_04,Login,Login with empty password,On login page,1. Enter username 2. Leave password empty 3. Click Login,standard_user / (blank),Error: Password is required,Medium,Negative,Yes
+TC_LOGIN_05,Login,Login with locked account,On login page,1. Enter locked username 2. Enter password 3. Click Login,locked_out_user / secret_sauce,Error: user has been locked out,High,Negative,Yes
+TC_LOGIN_06,Login,Logout,Logged in,1. Open side menu 2. Click Logout,-,Returned to login page,Medium,Positive,Yes
+TC_INV_01,Inventory,Products are displayed,Logged in,1. View inventory page,-,6 products shown,High,Positive,Yes
+TC_INV_02,Inventory,Sort by price low to high,Logged in,1. Select Price (low to high),-,Prices in ascending order,Medium,Positive,Yes
+TC_INV_03,Inventory,Sort by name Z to A,Logged in,1. Select Name (Z to A),-,Names in descending order,Low,Positive,Yes
+TC_CART_01,Cart,Add item updates cart badge,Logged in,1. Click Add to cart on Backpack,Sauce Labs Backpack,Cart badge shows 1,High,Positive,Yes
+TC_CART_02,Cart,Remove item clears badge,Item in cart,1. Click Remove on Backpack,Sauce Labs Backpack,Cart badge disappears,Medium,Positive,Yes
+TC_CART_03,Cart,Cart lists added items,Logged in,1. Add 2 items 2. Open cart,Backpack + Bike Light,Cart shows 2 items,High,Positive,Yes
+TC_CHK_01,Checkout,Complete purchase,2 items in cart,1. Checkout 2. Fill info 3. Check total 4. Finish,Danysh / Test / 81700,Item total $39.98; Thank you for your order!,High,Positive,Yes
+TC_CHK_02,Checkout,Missing first name,Item in cart,1. Checkout 2. Leave first name empty 3. Continue,(blank) / Test / 81700,Error: First Name is required,Medium,Negative,Yes
+TC_CHK_03,Checkout,Missing last name,Item in cart,1. Checkout 2. Leave last name empty 3. Continue,Danysh / (blank) / 81700,Error: Last Name is required,Medium,Negative,Yes
+TC_CHK_04,Checkout,Missing postal code,Item in cart,1. Checkout 2. Leave postal code empty 3. Continue,Danysh / Test / (blank),Error: Postal Code is required,Medium,Negative,Yes
